@@ -99,8 +99,8 @@ class HomeActivity extends StatelessWidget {
         ],
       )*/
 
-        /* ----------------------------------------Dynamic List view Builder with Gesture Dector  Code Part-------------------------------- */
-body:ListView.builder(
+        /* ------------------------------------------Dynamic List view Builder with Gesture Dector  Code Part-------------------------------- */
+/*body:ListView.builder(
   itemCount: MyItems.length,
   itemBuilder: (context,index){
     return GestureDetector(
@@ -114,7 +114,30 @@ body:ListView.builder(
       ),
     );
   },
-)
+)*/
+
+        /* ------------------------------------------Grid view Builder with Gesture Dector  Code Part-------------------------------- */
+        body:GridView.builder(
+            gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 0,
+              childAspectRatio: 1.2
+
+            ),
+          itemCount: MyItems.length,
+          itemBuilder: (context,index){
+            return GestureDetector(
+              onTap: (){Mysnackbar(MyItems[index]['title'], context);},
+              child: Container(
+                margin: EdgeInsets.all(10),
+                width: double.infinity,
+                height: 220,
+                child: Image.network(MyItems[index]['img']!, fit: BoxFit.fill,),
+
+              ),
+            );
+          },
+        )
 
       );
 
